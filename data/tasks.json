@@ -1,14 +1,1 @@
-[
-  {
-    "id": 1,
-    "completed": true,
-    "title": "Task 1",
-    "description": "first task"
-  },
-  {
-    "id": 2,
-    "title": "Task 2",
-    "description": "second task",
-    "completed": true
-  }
-]
+[]

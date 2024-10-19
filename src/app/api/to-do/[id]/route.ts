@@ -16,8 +16,7 @@ export async function PUT(request: Request, {params}: { params: { id: string}}){
         const updatedTask: Task = {
             id: tasks[taskIndex].id,
             completed: body.completed?? tasks[taskIndex].completed,
-            name: body.name?? tasks[taskIndex].name,
-            date: body.date?? tasks[taskIndex].date,
+            title: body.title?? tasks[taskIndex].title,
             description: body.description?? tasks[taskIndex].description,
         }
 

@@ -1,5 +1,5 @@
 import { promises as fs } from 'fs';
-import { Task } from "../../../interfaces/taskInterfaces"; // Asegúrate que la ruta sea correcta
+import { Task } from "../../../interfaces/taskInterfaces"; 
 import path from 'path';
 
 // Usamos process.cwd() para obtener la ruta del directorio raíz

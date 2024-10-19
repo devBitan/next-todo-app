@@ -28,13 +28,12 @@ export async function POST(req: Request){
         message: "La tarea no es valida",        
     }, {status: 500})
 
-    if(!body.name ||!body.date ||!body.description) return NextResponse.json({message: "Missing required fields"}, {status: 400})
+    if(!body.title ||!body.description) return NextResponse.json({message: "Missing required fields"}, {status: 400})
        
     const newTask: Task = {
         id: Date.now(),
         completed: false,
-        name: body.name,
-        date: body.date,
+        title: body.title,
         description: body.description,
     }
 

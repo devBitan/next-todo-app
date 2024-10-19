@@ -29,11 +29,11 @@ const TasksCrud: React.FC = () => {
                     setTask(data);
                 } else {
                     console.error('Error al obtener las tareas:', responseData);
-                    toast.error(`Error al obtener las tareas: ${responseData.error || 'Error desconocido'}`);
+                    toast.error(`Error getting tasks: ${responseData.error || 'Unknown error'}`);
                 }
             } catch (error) {
                 console.error('Error de la API al obtener las tareas:', error);
-                toast.error('Error al obtener las tareas');
+                toast.error('Error getting tasks');
             } finally {
                 setLoadingTask(false);
             }
@@ -44,7 +44,7 @@ const TasksCrud: React.FC = () => {
 
 
     const handleTask = async () => {
-      router.push("/tasks");
+      router.push("/todos");
     };
 
     return (
