@@ -1,36 +1,40 @@
 "use client";
-import TableRow from "./TableRow";
 import { TableData } from "../interfaces/taskInterfaces";
-import TableHeader from "./TableHead"
 
 const Table: React.FC<TableData> = ({ data, setDataToEdit, deleteData }) => {
     console.log(data)
     return (
-        <div className="p-4">
-            <h1 className="text-2xl font-bold mb-4 text-center p-3">Tasks</h1>
-            <table className="min-w-full border border-gray-300 rounded-md">
-                <TableHeader />
-                <tbody>
-                    {data.length > 0 ? (
-                        data.map((task) => (
-                            <TableRow
-                                key={task.id}
-                                task={task}
-                                setDataToEdit={setDataToEdit}
-                                deleteData={deleteData}
-                            />
-                        ))
-                    ) : (
-                        <tr>
-                            <td colSpan={5} className="text-center p-4">
-                                No data
-                            </td>
-                        </tr>
-                    )}
-                </tbody>
-            </table>
+        <div className='flex flex-col items-center gap-8 pt-8 bg-violet-200 pb-32'>
+            <div className='text-2xl'>Riwi toDo list</div>
+            <div className='w-5/6 flex flex-col gap-2'>
+                {data.map((task, index) => {
+                    return (
+                        <div className='bg-violet-600 flex justify-between items-center p-2 rounded-lg shadow-md'>
+                            <div className='flex gap-2'>
+                                <div className='text-lg text-w   hite'>{task.title}</div>
+                            </div>
+                            <div className="flex gap-2">
+                                <span className={task.completed ? "text-green-600 font-semibold" : "text-red-600 font-semibold"}>
+                                    {task.completed ? "✔️" : "❌"}
+                                </span>
+                            </div>
+                            <div className='flex gap-2'>
+                                <button className='text-xl shadow-md bg-green-600 text-white hover:bg-green-500 rounded-md px-2' onClick={() => setDataToEdit(task)} >Edit</button>
+                                <button className='text-xl shadow-md bg-red-600 text-white hover:bg-red-500 rounded-md px-2' onClick={() => deleteData(task.id)} >Delete</button>
+                            </div>
+                        </div>
+                    )
+                })}
+            </div>
         </div>
     );
 };
 
 export default Table;
+
+{/* <td className="border border-gray-300 py-2 px-4">
+
+    <span className={completed ? "text-green-600 font-semibold" : "text-red-600 font-semibold"}>
+        {completed ? "✔️" : "❌"}
+    </span>
+</td> */}

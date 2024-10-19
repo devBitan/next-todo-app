@@ -33,17 +33,14 @@ const TasksCrud: React.FC = () => {
                     const data: Task[] = responseData.data;
                     setTask(data);
                 } else {
-                    console.error('Error getting tasks:', responseData);
                     toast.error(`Error getting tasks: ${responseData.error || 'Unknown error'}`);
                 }
             } catch (error) {
-                console.error('API error getting tasks:', error);
                 toast.error('Error getting tasks');
             } finally {
                 setLoadingTask(false);
             }
         };
-
         fetchTasks();
     }, []);
 
@@ -78,14 +75,11 @@ const TasksCrud: React.FC = () => {
                 toast.error(`Error creating task: ${responseData.message || 'Unknown error'}`);
             }
         } catch (error: unknown) {
-            console.error('Error sending assignment:', error);
             toast.error("Error creating task.");
         }
     };
     
-
     const handleUpdateTask = async (updatedTask: Task) => {
-
         try {
             const taskToUpdate = {
                 title: updatedTask.title,
@@ -103,7 +97,6 @@ const TasksCrud: React.FC = () => {
             });
 
             const responseData = await response.json();
-            console.log(responseData)
 
             if (responseData.status === 200 && responseData.data) {
                 const updatedTaskData: Task = responseData.data; // Ajuste para usar la propiedad data
@@ -114,7 +107,6 @@ const TasksCrud: React.FC = () => {
                 setEditedTask(null);
             }
         } catch (error) {
-            console.error("Error updating task:", error);
             toast.error("Error updating task.");
         }
     };
@@ -125,7 +117,6 @@ const TasksCrud: React.FC = () => {
     if (!isConfirmed) {
         return;
     }
-
         try {
             const response = await fetch(`/api/to-do/${taskId}`, {
                 method: 'DELETE',
@@ -140,11 +131,9 @@ const TasksCrud: React.FC = () => {
                 setTask((prev) => prev.filter((task) => task.id !== taskId));
                 toast.success("Task deleted successfully!");
             } else {
-                console.error("Error al eliminar la tarea", responseData);
                 toast.error("Error deleting task");
             }
         } catch (error) {
-            console.error("Error deleting task:", error);
             toast.error("Error deleting task.");
         }
     };
@@ -169,7 +158,5 @@ const TasksCrud: React.FC = () => {
         </>
     );
 };
-
-
 
 export default TasksCrud;
