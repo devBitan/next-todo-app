@@ -2,29 +2,13 @@
   {
     "id": 1,
     "completed": true,
-    "name": "Task 1",
-    "date": "2022-12-25",
+    "title": "Task 1",
     "description": "This is the first task"
   },
   {
     "id": 2,
-    "name": "Task 2",
-    "date": "2022-12-25",
+    "title": "Task 2",
     "description": "This is the second task",
     "completed": true
-  },
-  {
-    "id": 1729031075387,
-    "completed": false,
-    "name": "Task 3",
-    "date": "2024-10-15T22:23:38.094Z",
-    "description": "This is the thirth task"
-  },
-  {
-    "id": 1729031435490,
-    "completed": false,
-    "name": "Task 4",
-    "date": "2024-10-15T22:24:44.633Z",
-    "description": "This is the fourth task"
   }
 ]
