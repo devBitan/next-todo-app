@@ -3,12 +3,12 @@
     "id": 1,
     "completed": true,
     "title": "Task 1",
-    "description": "This is the first task"
+    "description": "first task"
   },
   {
     "id": 2,
     "title": "Task 2",
-    "description": "This is the second task",
+    "description": "second task",
     "completed": true
   }
 ]
